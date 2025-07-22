@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Builder</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .upload-group {
+      margin-bottom: 10px;
+    }
+
+    .table-container {
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Product Builder Web App</h2>
+
+  <form id="uploadForm" enctype="multipart/form-data">
+    <label>BOM csv: <input type="file" name="bomFile" /></label>
+    <label>Description csv: <input type="file" name="descriptionFile" /></label>
+    <label>Inventory csv: <input type="file" name="inventoryFile" /></label>
+    <label>Requirement csv: <input type="file" name="requirementsFile" /></label>
+    <label>pipeline csv: <input type="file" name="pipelineFile" /></label>
+    <button type="submit">Upload</button>
+  </form>
+
+  <pre id="result"></pre>
+
+  <button onclick="processData()">Process Data</button>
+  <pre id="result"></pre>
+  <div class="table-container" id="results"></div>
+
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+
+      const response = await fetch('http://localhost:8080/api/upload', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+      } else {
+        document.getElementById('result').textContent = "Failed to upload or parse files.";
+      }
+    });
+    async function processData() {
+      const bomFile = document.getElementById('bomFile').files[0];
+      const descriptionFile = document.getElementById('descriptionFile').files[0];
+      const inventoryFile = document.getElementById('inventoryFile').files[0];
+      const requirementsFile = document.getElementById('requirementsFile').files[0];
+      const pipelineFile = document.getElementById('pipelineFile').files[0];
+
+      if (!bomFile || !descriptionFile || !inventoryFile || !requirementsFile || !pipelineFile) {
+        alert("Please select all five files.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("bomFile", bomFile);
+      formData.append("descriptionFile", descriptionFile);
+      formData.append("inventoryFile", inventoryFile);
+      formData.append("requirementsFile", requirementsFile);
+      formData.append("pipelineFile", pipelineFile);
+
+      try {
+        const response = await fetch('http://localhost:8080/api/upload', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          alert("Error: " + errorText);
+          return;
+        }
+
+        const resultText = await response.text();
+        document.getElementById('results').innerText = resultText;
+      } catch (error) {
+        alert("Error: " + error.message);
+      }
+    }
+  </script>
+
+</body>
+
+</html>

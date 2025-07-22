@@ -1,0 +1,5 @@
+com\example\productbuilder\model\BOM.class
+com\example\productbuilder\services\FileProcessingService.class
+com\example\productbuilder\ProductBuilderApplication.class
+com\example\productbuilder\controller\FileUploadController.class
+com\example\productbuilder\FileProcessingResponse.class
