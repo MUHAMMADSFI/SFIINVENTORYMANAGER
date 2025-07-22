@@ -46,10 +46,17 @@
         </div>
 
         <div class="mb-3">
+          <label class="form-label">Purchase CSV</label>
+          <input type="file" class="form-control" name="purchaseFile">
+        </div>
+
+        <div class="mb-3">
           <label class="form-label">Requirement CSV</label>
           <input type="file" class="form-control" name="requirementsFile">
         </div>
 
+
+        
         <div class="mb-4">
           <label class="form-label">Pipeline CSV</label>
           <input type="file" class="form-control" name="pipelineFile">
@@ -113,7 +120,7 @@
       formData.append("pipelineFile", pipelineFile);
 
       try {
-        const response = await fetch('http://localhost:8080/api/upload', {
+        const response = await fetch('/api/upload', {
           method: 'POST',
           body: formData
         });

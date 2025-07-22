@@ -3,6 +3,7 @@ package com.example.productbuilder.controller;
 import com.example.productbuilder.FileProcessingResponse;
 import com.example.productbuilder.model.BOM;
 import com.example.productbuilder.services.FileProcessingService;
+import com.example.productbuilder.util.HelperMethods;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,21 +31,22 @@ public class FileUploadController {
             @RequestParam("descriptionFile") MultipartFile descriptionFile,
             @RequestParam("inventoryFile") MultipartFile inventoryFile,
             @RequestParam("requirementsFile") MultipartFile requirementsFile,
-            @RequestParam("pipelineFile") MultipartFile pipelineFile) {
+            @RequestParam("pipelineFile") MultipartFile pipelineFile,
+            @RequestParam("purchaseFile") MultipartFile purchaseFile) {
 
         try {
             List<BOM> bom = fileProcessingService.processBomFile(bomFile);
-            Map<String, String> descriptionMap = fileProcessingService.processDescriptionFile(descriptionFile);
-            Map<String, Double> inventoryMap = fileProcessingService.processCsvfile(inventoryFile);
-            Map<String, Double> requirementsMap = fileProcessingService.processCsvfile(requirementsFile);
-            Map<String, Object[]> pipelineMap = fileProcessingService.processPipelineFile(pipelineFile);
+            Map<String, String> description = fileProcessingService.processDescriptionFile(descriptionFile);
+            Map<String, Double> inventory = HelperMethods.inventoryPlusPurchase(fileProcessingService.processCsvfile(inventoryFile),fileProcessingService.processCsvfile(purchaseFile));
+            Map<String, Double> requirements = fileProcessingService.processCsvfile(requirementsFile);
+            Map<String, Object[]> pipeline = fileProcessingService.processPipelineFile(pipelineFile);
 
             FileProcessingResponse response = new FileProcessingResponse();
             response.setBom(bom);
-            response.setDescriptionMap(descriptionMap);
-            response.setInventoryMap(inventoryMap);
-            response.setRequirementsMap(requirementsMap);
-            response.setPipelineMap(pipelineMap);
+            response.setDescriptionMap(description);
+            response.setInventoryMap(inventory);
+            response.setRequirementsMap(requirements);
+            response.setPipelineMap(pipeline);
 
             return ResponseEntity.ok(response);
 
