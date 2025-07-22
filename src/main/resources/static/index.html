@@ -4,64 +4,76 @@
 <head>
   <meta charset="UTF-8" />
   <title>Product Builder</title>
-  <style>
-    body {
-      font-family: Arial;
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
+  <link rel="stylesheet" href="style.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    h2 {
-      color: #333;
-    }
+  <!-- Bootstrap Icons (Optional for a more modern UI) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-    .upload-group {
-      margin-bottom: 10px;
-    }
 
-    .table-container {
-      margin-top: 20px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
-
-    th,
-    td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: left;
-    }
-
-    button {
-      padding: 8px 12px;
-      margin: 5px;
-    }
-  </style>
 </head>
 
 <body>
 
-  <h2>Product Builder Web App</h2>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="bi bi-box-seam"></i> Product Builder</a>
+    </div>
+  </nav>
 
-  <form id="uploadForm" enctype="multipart/form-data">
-    <label>BOM csv: <input type="file" name="bomFile" /></label>
-    <label>Description csv: <input type="file" name="descriptionFile" /></label>
-    <label>Inventory csv: <input type="file" name="inventoryFile" /></label>
-    <label>Requirement csv: <input type="file" name="requirementsFile" /></label>
-    <label>pipeline csv: <input type="file" name="pipelineFile" /></label>
-    <button type="submit">Upload</button>
-  </form>
+  <!-- Main Container -->
+  <div class="container">
+    <div class="main-card">
 
-  <pre id="result"></pre>
+      <h3 class="mb-4 text-center text-success"><i class="bi bi-upload"></i> Upload CSV Files</h3>
 
-  <button onclick="processData()">Process Data</button>
-  <pre id="result"></pre>
-  <div class="table-container" id="results"></div>
+      <form id="uploadForm" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label class="form-label">BOM CSV</label>
+          <input type="file" class="form-control" name="bomFile">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Description CSV</label>
+          <input type="file" class="form-control" name="descriptionFile">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Inventory CSV</label>
+          <input type="file" class="form-control" name="inventoryFile">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Requirement CSV</label>
+          <input type="file" class="form-control" name="requirementsFile">
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label">Pipeline CSV</label>
+          <input type="file" class="form-control" name="pipelineFile">
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+          <button type="submit" class="btn btn-success me-md-2"><i class="bi bi-cloud-arrow-up"></i> Upload</button>
+          <button type="button" class="btn btn-primary" onclick="processData()"><i class="bi bi-play-circle"></i> Process Data</button>
+        </div>
+      </form>
+
+      <div id="result" class="mt-4"></div>
+      <div class="table-container" id="results"></div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-5">
+    <p>&copy; 2025 Product Builder Web App by <B>MUHAMMAD SHAIKH</B></p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
     document.getElementById('uploadForm').addEventListener('submit', async function (e) {
@@ -80,6 +92,7 @@
         document.getElementById('result').textContent = "Failed to upload or parse files.";
       }
     });
+
     async function processData() {
       const bomFile = document.getElementById('bomFile').files[0];
       const descriptionFile = document.getElementById('descriptionFile').files[0];
