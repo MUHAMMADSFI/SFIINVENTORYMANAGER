@@ -3,7 +3,7 @@ package com.example.productbuilder.controller;
 import com.example.productbuilder.FileProcessingResponse;
 import com.example.productbuilder.model.BOM;
 import com.example.productbuilder.services.FileProcessingService;
-import com.example.productbuilder.util.HelperMethods;
+import com.example.productbuilder.utility.HelperMethods;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

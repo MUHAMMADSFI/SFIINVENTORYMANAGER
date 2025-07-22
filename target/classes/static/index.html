@@ -107,8 +107,8 @@
       const inventoryFile = document.getElementById('inventoryFile').files[0];
       const requirementsFile = document.getElementById('requirementsFile').files[0];
       const pipelineFile = document.getElementById('pipelineFile').files[0];
-
-      if (!bomFile || !descriptionFile || !inventoryFile || !requirementsFile || !pipelineFile) {
+      const purchaseFile = document.getElementById("purchaseFile").files[0];
+      if (!bomFile || !descriptionFile || !inventoryFile || !requirementsFile || !pipelineFile || !purchaseFile) {
         alert("Please select all five files.");
         return;
       }
@@ -117,6 +117,7 @@
       formData.append("bomFile", bomFile);
       formData.append("descriptionFile", descriptionFile);
       formData.append("inventoryFile", inventoryFile);
+      formData.append("purchaseFile", purchaseFile);
       formData.append("requirementsFile", requirementsFile);
       formData.append("pipelineFile", pipelineFile);
 
