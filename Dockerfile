@@ -1,14 +1,16 @@
-# Use official OpenJDK image as base
-FROM openjdk:17-jdk-slim
+# Use a Maven image to build the project
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 
-# Set the working directory inside the container
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
 
-# Copy the jar file to the container
-COPY target/product-builder-app.jar app.jar
+RUN mvn clean package -DskipTests
 
-# Expose port (change if your app runs on a different port)
-EXPOSE 8080
+# Use a smaller runtime image
+FROM eclipse-temurin:17-jdk-jammy
 
-# Run the jar file
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+
 ENTRYPOINT ["java", "-jar", "app.jar"]
