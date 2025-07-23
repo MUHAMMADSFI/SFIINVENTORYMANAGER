@@ -43,7 +43,7 @@ public class FileUploadController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFiles(
+    public ResponseEntity<List<String>> uploadFiles(
             @RequestParam("bomFile") MultipartFile bomFile,
             @RequestParam("descriptionFile") MultipartFile descriptionFile,
             @RequestParam("inventoryFile") MultipartFile inventoryFile,
@@ -83,7 +83,7 @@ public class FileUploadController {
             // response.setPipelineMap(pipeline);
             // return ResponseEntity.ok(response);
 
-            return ResponseEntity.ok("Your results are ready click download to get your results");
+            return ResponseEntity.ok(response);
 
 
         } catch (Exception e) {
