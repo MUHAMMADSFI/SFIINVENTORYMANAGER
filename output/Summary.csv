@@ -1,21 +1,21 @@
 FG CODE,DESCRIPTION,REQUIRED QTY (CTN),CAN BE MADE (CTN),SHORT QTY (CTN)
-SF-ND0010,Nadec Duplex FPC Salt 21g X 5box X 12p,573.0,0.0,573.0
-SF-ND0020,Nadec FPC Salt 155g X 12p,1451.0,394.0,1057.0
+SF-ND0010,Nadec Duplex FPC Salt 21g X 5box X 12p,573.0,573.0,0.0
+SF-ND0020,Nadec FPC Salt 155g X 12p,1451.0,1451.0,0.0
 SF-ND0009,Nadec Duplex FPC Salt & Vinegar 21g X 5box X 12p,549.0,549.0,0.0
 SF-ND0008,Nadec Duplex FPC Cheese 21g X 5box X 12p,1121.0,1121.0,0.0
-SF-ND0019,Nadec FPC Salt & Vinegar 155g X 12p,2309.0,2226.0,83.0
+SF-ND0019,Nadec FPC Salt & Vinegar 155g X 12p,2309.0,2309.0,0.0
 SF-ND0001,Nadec Polybag FPC Ketchup 21g x 2b x 25p,852.0,852.0,0.0
-SF-ND0012,Nadec FPC Chilli 40g X 28p,5521.0,4530.0,991.0
-SF-ND0011,Nadec FPC Ketchup 40g X 28p,4004.0,0.0,4004.0
+SF-ND0012,Nadec FPC Chilli 40g X 28p,5521.0,5521.0,0.0
+SF-ND0011,Nadec FPC Ketchup 40g X 28p,4004.0,4004.0,0.0
 SF-ND0003,Nadec Polybags FPC Cheese 21g x 2b x 25p,616.0,616.0,0.0
-SF-ND0014,Nadec FPC Salt & Vinegar 40g X 28p,1413.0,0.0,1413.0
-SF-ND0002,Nadec Polybags FPC Chili 21g x 2b x 25p,1176.0,92.0,1084.0
-SF-ND0013,Nadec FPC Cheese 40g X 28p,3175.0,0.0,3175.0
-SF-ND0005,Nadec Polybags FPC Salt 21g x 2b x 25p,323.0,0.0,323.0
+SF-ND0014,Nadec FPC Salt & Vinegar 40g X 28p,1413.0,1413.0,0.0
+SF-ND0002,Nadec Polybags FPC Chili 21g x 2b x 25p,1176.0,1176.0,0.0
+SF-ND0013,Nadec FPC Cheese 40g X 28p,3175.0,3175.0,0.0
+SF-ND0005,Nadec Polybags FPC Salt 21g x 2b x 25p,323.0,323.0,0.0
 SF-ND0016,Nadec FPC Ketchup 155g X 12p,5828.0,5828.0,0.0
-SF-ND0004,Nadec Polybags FPC Salt & Vinegar 21g x 2b x 25p,323.0,0.0,323.0
-SF-ND0015,Nadec FPC Salt 40g X 28p,1004.0,0.0,1004.0
-SF-ND0007,Nadec Duplex FPC Chilli 21g X 5box X 12p,1967.0,1079.0,888.0
-SF-ND0018,Nadec FPC Cheese 155g X 12p,4617.0,2410.0,2207.0
-SF-ND0006,Nadec Duplex FPC Ketchup 21g X 5box X 12p,1419.0,0.0,1419.0
-SF-ND0017,Nadec FPC Chilli 155g X 12p,7968.0,0.0,7968.0
+SF-ND0004,Nadec Polybags FPC Salt & Vinegar 21g x 2b x 25p,323.0,323.0,0.0
+SF-ND0015,Nadec FPC Salt 40g X 28p,1004.0,1004.0,0.0
+SF-ND0007,Nadec Duplex FPC Chilli 21g X 5box X 12p,1967.0,1967.0,0.0
+SF-ND0018,Nadec FPC Cheese 155g X 12p,4617.0,4617.0,0.0
+SF-ND0006,Nadec Duplex FPC Ketchup 21g X 5box X 12p,1419.0,1419.0,0.0
+SF-ND0017,Nadec FPC Chilli 155g X 12p,7968.0,7968.0,0.0
